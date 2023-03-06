@@ -1,0 +1,114 @@
+.navbar {
+  background-color: #333;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navbar-brand a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-brand img {
+  height: 40px; /* Customize the height of your logo */
+  margin-right: 10px; /* Add some spacing between the logo and text */
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 0 10px;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 15px;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  background-color: #555;
+}
+
+.signup-link {
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  padding: 7px 10px;
+  text-decoration: none;
+}
+
+.login-link {
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  padding: 7px 10px;
+  text-decoration: none;
+}
+
+.signup-link:hover,
+.login-link:hover {
+  opacity: 0.8;
+}
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.title-container h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.cta-button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background-color: #fecc4c;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 30rem;
+  border: 2px solid #f39c12;
+
+  white-space: nowrap;
+}
+
+.cta-button:hover {
+  background-color: #f1db10;
+}
+.icons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.icon {
+  color: #080808;
+  font-size: 4rem;
+  margin-right: 2rem;
+}

@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+
+.homepage {
+  height: calc(100vh - 50px); /* Subtract the navbar height from the viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.homepage p {
+  font-size: 1.5rem;
+  text-align: center;
+}
