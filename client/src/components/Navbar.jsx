@@ -1,8 +1,10 @@
 import React from "react";
 import "../styles/navbar.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   return (
     <nav className="navbar">
       <div className="navbar-brand">
@@ -14,16 +16,35 @@ export default function Navbar() {
         </Link>
       </div>
       <ul className="navbar-nav">
-        <li className="nav-item">
-          <Link to="/signup" className="signup-link">
-            Signup
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/login" className="login-link">
-            Login
-          </Link>
-        </li>
+        {localStorage.getItem("token") ? (
+          <>
+            <li className="nav-item">
+              <Link
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  navigate("/")
+                  window.location.reload();
+                }}
+                className="login-link"
+              >
+                Log out
+              </Link>
+            </li>
+          </>
+        ) : (
+          <>
+            <li className="nav-item">
+              <Link to="/signup" className="signup-link">
+                Signup
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/login" className="login-link">
+                Login
+              </Link>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );

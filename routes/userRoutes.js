@@ -6,13 +6,16 @@ const {
   addCourse,
   getCourses,
   getMe,
+  getUserbyId,
   Authentication
 } = require("../controllers/userController");
 
 router.post("/signup", Signup);
 router.post("/login", Login);
 router.post("/addcourse", addCourse);
-router.get("/allcourses", getCourses);
-router.get("/auth", Authentication, getMe);
+router.post("/allcourses", getCourses);
+router.post("/auth", Authentication, getMe);
+// router.post("/userdets", getUserbyId);
+
 
 module.exports = router;

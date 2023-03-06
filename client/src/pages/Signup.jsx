@@ -1,17 +1,29 @@
 import React, { useState } from "react";
 import "../styles/signup.css";
 import Navbar from "../components/Navbar";
+import { Link, useNavigate } from "react-router-dom";
+import { signup } from "../controllers/user";
 
 function Signup() {
-  const [username, setUsername] = useState("");
+  const navigate = useNavigate();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Username:", username);
-    console.log("Email:", email);
-    console.log("Password:", password);
+    let obj = {
+      name: name,
+      email: email,
+      password: password,
+  };
+  console.log(obj);
+  console.log("hi");
+  signup(obj).then((data) => {
+      alert(data.message);
+      console.log(data);
+  });
+  navigate("/login");
   };
 
   return (
@@ -21,11 +33,11 @@ function Signup() {
         <h1>Sign up</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            Username:
+            Name:
             <input
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </label>
           <label>
@@ -47,6 +59,7 @@ function Signup() {
           <button type="submit">Sign up</button>
         </form>
       </div>
+      <Link to="/login">Already have an account? Login here</Link>
     </>
   );
 }

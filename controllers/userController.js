@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
-const Course=require("../models/courseModel");
+const Course = require("../models/courseModel");
 
 const Signup = asyncHandler(async (req, res) => {
   try {
@@ -65,11 +65,24 @@ const Login = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Get user data
-// @route   GET /api/users/me
-// @access  Private
 const getMe = asyncHandler(async (req, res) => {
   res.status(200).json(req.user);
+});
+
+const getUserbyId = asyncHandler(async (req, res) => {
+  const id = req.body.id;
+  let user = {};
+  user = await User.findOne({ _id: id });
+  if (user) {
+    return res.json({
+      message: user,
+      tag: true,
+    });
+  }
+  return res.json({
+    message: user,
+    tag: false,
+  });
 });
 
 const Authentication = asyncHandler(async (req, res) => {
@@ -96,7 +109,7 @@ const addCourse = asyncHandler(async (req, res) => {
 
     const course = new Course({
       title,
-      duration
+      duration,
     });
 
     const savedCourse = await course.save();
@@ -121,5 +134,6 @@ module.exports = {
   getMe,
   addCourse,
   getCourses,
+  getUserbyId,
   Authentication,
 };

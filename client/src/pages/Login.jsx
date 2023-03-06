@@ -1,17 +1,31 @@
 import React, { useState } from "react";
 import "../styles/login.css";
 import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
+import { login } from "../controllers/user";
 
 function Login() {
  
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
-  };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+          let obj = {
+            email: email,
+            password: password,
+          };
+          login(obj).then((data) => {
+            if (data.tag === true) {
+              localStorage.setItem("token", data.token);
+              navigate("/dashboard");
+            } else {
+              alert("Invalid login");
+            }
+            window.location.reload();
+          });
+      };
 
   return (
     <>

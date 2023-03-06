@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Block = ({ text }) => {
+const Block = (props) => {
   return (
     <div className="block">
-      {text}
+      {props.text}
+      {props.duration}
     </div>
   );
 };
