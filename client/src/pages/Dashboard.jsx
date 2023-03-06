@@ -1,7 +1,15 @@
-import React from 'react'
+import React from 'react';
+import Navbar from "../components/Navbar";
+
 
 export default function Dashboard() {
   return (
-    <h1>Dashboard</h1>
+    <>
+        <Navbar/>
+        <h1>Earn free verified certifications in:</h1>
+        
+
+    </>
+   
   )
 }
