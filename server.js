@@ -19,13 +19,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/users', require('./routes/userRoutes'));
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-//   });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
 
-//   app.post('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-//   });
+  app.post('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
 
 app.listen(port, () => {
     console.log("Backend Server running at 5000");
