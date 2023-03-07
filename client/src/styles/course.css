@@ -1,53 +1,68 @@
 .dashboard-container {
-    padding: 20px;
-    background-color: #f2f2f2;
-  }
-  
-  .dashboard-title {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .dashboard-text {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .courses-container {
-    margin-top: 20px;
-  }
-  
-  .courses-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .courses-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .course {
-    margin-bottom: 10px;
-  }
-  
-  .course-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .course-duration {
-    font-size: 16px;
-    margin: 0;
-  }
-  
-  .login-message {
-    font-size: 24px;
-    font-style: italic;
-    margin-top: 20px;
-  }
-  
+  /* padding: 20px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  gap: 1rem;
+}
+
+.dashboard-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 5rem;
+}
+
+.dashboard-text {
+  font-size: 24px;
+  text-align: center;
+}
+
+.courses-container {
+  /* margin-top: 20px; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.courses-list {
+  width: 100%;
+}
+
+.course {
+  margin-bottom: 10px;
+  padding: 0.5rem;
+  border: 2px solid #0a0a23;
+  color: #0a0a23;
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-align: center;
+  width: 50%;
+}
+.course:hover {
+  border: 2px solid #0a0a23;
+  color: #f2f2f2;
+  background-color: #0a0a23;
+}
+
+.course-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.course-duration {
+  font-size: 16px;
+  margin: 0;
+}
+
+.login-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 3rem;
+}

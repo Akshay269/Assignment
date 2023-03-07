@@ -64,6 +64,7 @@
 }
 .homepage {
   max-width: 1000px;
+  width: 80%;
   margin: 0 auto;
   padding: 0 20px;
 }

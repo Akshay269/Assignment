@@ -1,10 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const Course = (props) => {
   return (
-    <div className="block">
-      {props.title}
-      {props.duration}
+    <div className="course">
+      <div>{`${props.title} (${props.duration})`}</div>
     </div>
   );
 };

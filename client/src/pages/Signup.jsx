@@ -58,8 +58,8 @@ function Signup() {
           </label>
           <button type="submit">Sign up</button>
         </form>
+      <Link to="/login" className="login-redirect">Already have an account? Login here</Link>
       </div>
-      <Link to="/login">Already have an account? Login here</Link>
     </>
   );
 }

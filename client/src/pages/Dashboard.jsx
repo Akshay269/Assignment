@@ -21,7 +21,7 @@ export default function Dashboard() {
               .id,
           };
           get_courses(obj).then((data) => {
-            console.log(data)
+            console.log(data);
             setCourses(data);
           });
         } else {
@@ -39,22 +39,20 @@ export default function Dashboard() {
           <h1 className="dashboard-title"> Welcome to freeCodeCamp.org </h1>
           <p className="dashboard-text">
             "I am not young enough to know everything."
+            <p>-Oscar Wilde</p>
           </p>
           <div className="courses-container">
-            <h2 className="courses-title">Courses</h2>
-            <ul className="courses-list">
-              {courses
-                ? courses.map((course) => {
-                    return (
-                      <Course title={course.title} duration={course.duration} />
-                    );
-                  })
-                : ""}
-            </ul>
+            {courses
+              ? courses.map((course) => {
+                  return (
+                    <Course title={course.title} duration={course.duration} />
+                  );
+                })
+              : ""}
           </div>
         </div>
       ) : (
-        <p className="login-message">Please log in to view courses.</p>
+        <div className="login-message">Please log in to view courses.</div>
       )}
     </>
   );
