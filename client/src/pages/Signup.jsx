@@ -4,8 +4,8 @@ import Navbar from "../components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import { signup } from "../controllers/user";
 
+
 function Signup() {
-  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,12 +18,13 @@ function Signup() {
       password: password,
   };
   console.log(obj);
-  console.log("hi");
   signup(obj).then((data) => {
       alert(data.message);
       console.log(data);
   });
-  navigate("/login");
+  setName("");
+  setEmail("");
+  setPassword("");
   };
 
   return (

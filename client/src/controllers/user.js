@@ -1,4 +1,4 @@
-const base = "https://talent-box-ubgj.onrender.com";
+const base = "http://localhost:5000";
 
 export const signup = async (obj) => {
   const res = await fetch(`${base}/api/users/signup`, {
@@ -11,6 +11,7 @@ export const signup = async (obj) => {
   const ans = await res.json();
   return ans;
 };
+
 export const auth = async (obj) => {
   const res = await fetch(`${base}/api/users/auth`, {
     method: "POST",
@@ -34,7 +35,6 @@ export const login = async (obj) => {
   const ans = await res.json();
   return ans;
 };
-
 
   //get all courses
 export const get_courses = async (obj) => {
