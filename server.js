@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const cors=require("cors");
 const path = require('path');
+const port=process.env.PORT || 5000;
 
 try {
     mongoose.connect("mongodb+srv://aks123:123@assgn.bpeatqy.mongodb.net/?retryWrites=true&w=majority");
@@ -18,15 +19,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/users', require('./routes/userRoutes'));
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+//   });
 
-  app.post('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
+//   app.post('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+//   });
 
-app.listen(5000, () => {
+app.listen(port, () => {
     console.log("Backend Server running at 5000");
   });
   

@@ -1,8 +1,12 @@
+const express = require("express");
+const app = express();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 const Course = require("../models/courseModel");
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const Signup = asyncHandler(async (req, res) => {
   try {

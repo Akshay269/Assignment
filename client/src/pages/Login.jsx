@@ -3,36 +3,42 @@ import "../styles/login.css";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import { login } from "../controllers/user";
+import { ThreeCircles } from "react-loader-spinner";
 
 function Login() {
- 
   const navigate = useNavigate();
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-          let obj = {
-            email: email,
-            password: password,
-          };
-          login(obj).then((data) => {
-            if (data.tag === true) {
-              localStorage.setItem("token", data.token);
-              navigate("/dashboard");
-            } else {
-              alert("Invalid login");
-            }
-            window.location.reload();
-          });
-      };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    let obj = {
+      email: email,
+      password: password,
+    };
+    login(obj).then((data) => {
+      if (data.tag === true) {
+        localStorage.setItem("token", data.token);
+        alert(data.message);
+        navigate("/dashboard");
+        setLoading(false);
+      } else {
+        alert("Invalid login");
+        setLoading(false);
+      }
+      window.location.reload();
+    });
+  };
 
   return (
     <>
       <Navbar />
+    
       <div className="login-container">
         <h1>Log in</h1>
-        <form onSubmit={handleSubmit}>
+        <form>
           <label>
             Email:
             <input
@@ -49,7 +55,9 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
-          <button type="submit">Log in</button>
+          <button type="submit" onClick={handleSubmit}>
+            Log in
+          </button>
         </form>
       </div>
     </>
