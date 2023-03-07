@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Block = (props) => {
+const Course = (props) => {
   return (
     <div className="block">
-      {props.text}
+      {props.title}
       {props.duration}
     </div>
   );
 };
 
-export default Block;
+export default Course;

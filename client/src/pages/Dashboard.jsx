@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import { useNavigate } from "react-router-dom";
-import { auth, get_courses, get_userdet_by_id } from "../controllers/user";
-import Block from "../components/Block";
+import { auth, get_courses } from "../controllers/user";
+import Course from "../components/Course";
+import "../styles/course.css";
 
 export default function Dashboard() {
-  const navigate = useNavigate();
   let [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  let [name, setName] = useState("");
   let [courses, setCourses] = useState([]);
 
   useEffect(() => {
@@ -19,12 +17,12 @@ export default function Dashboard() {
         if (data.tag) {
           setIsUserLoggedIn(true);
           let obj = {
-            id: JSON.parse(
-              atob(localStorage.getItem("token").split(".")[1])
-            ).id,
+            id: JSON.parse(atob(localStorage.getItem("token").split(".")[1]))
+              .id,
           };
           get_courses(obj).then((data) => {
-            setCourses(data.message);
+            console.log(data)
+            setCourses(data);
           });
         } else {
           setIsUserLoggedIn(false);
@@ -32,18 +30,32 @@ export default function Dashboard() {
       });
     }
   }, []);
+
   return (
     <>
       <Navbar />
-      <h1>Earn free verified certifications in:</h1>
-      <div>
-        {/* {courses.map((course) => (
-          <div key={course._id}>
-            <h2>{course.title}</h2>
-            <p>{course.duration}</p>
+      {isUserLoggedIn ? (
+        <div className="dashboard-container">
+          <h1 className="dashboard-title"> Welcome to freeCodeCamp.org </h1>
+          <p className="dashboard-text">
+            "I am not young enough to know everything."
+          </p>
+          <div className="courses-container">
+            <h2 className="courses-title">Courses</h2>
+            <ul className="courses-list">
+              {courses
+                ? courses.map((course) => {
+                    return (
+                      <Course title={course.title} duration={course.duration} />
+                    );
+                  })
+                : ""}
+            </ul>
           </div>
-        ))} */}
-      </div>
+        </div>
+      ) : (
+        <p className="login-message">Please log in to view courses.</p>
+      )}
     </>
   );
 }

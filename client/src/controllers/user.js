@@ -35,18 +35,6 @@ export const login = async (obj) => {
   return ans;
 };
 
-//User details by id
-export const get_userdet_by_id = async (obj) => {
-    const res = await fetch(`${base}/api/users/userdets`, {
-      method: "POST",
-      body: JSON.stringify(obj),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const ans = await res.json();
-    return ans;
-  };
 
   //get all courses
 export const get_courses = async (obj) => {

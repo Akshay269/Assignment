@@ -1,0 +1,53 @@
+.dashboard-container {
+    padding: 20px;
+    background-color: #f2f2f2;
+  }
+  
+  .dashboard-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .dashboard-text {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .courses-container {
+    margin-top: 20px;
+  }
+  
+  .courses-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .courses-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .course {
+    margin-bottom: 10px;
+  }
+  
+  .course-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .course-duration {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .login-message {
+    font-size: 24px;
+    font-style: italic;
+    margin-top: 20px;
+  }
+  

@@ -63,11 +63,9 @@
   opacity: 0.8;
 }
 .homepage {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 .title-container {
   display: flex;
